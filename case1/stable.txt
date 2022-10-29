@@ -1,0 +1,260 @@
+e: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: /Users/yoda/dev/pet/kc/case1/src/main/kotlin/pkg/logger.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:239)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:235)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:68)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:55)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:41)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:96)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:29)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:96)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:43)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:305)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.runCodegen(KotlinToJVMBytecodeCompiler.kt:356)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.compileModules$cli(KotlinToJVMBytecodeCompiler.kt:134)
+	at org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler.compileModules$cli$default(KotlinToJVMBytecodeCompiler.kt:58)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:158)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:53)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:99)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:47)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:475)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:125)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileIncrementally(IncrementalCompilerRunner.kt:373)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileIncrementally$default(IncrementalCompilerRunner.kt:318)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.rebuild(IncrementalCompilerRunner.kt:114)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:207)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:79)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:625)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:101)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1746)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN name:main visibility:public modality:FINAL <> ($completion:kotlin.coroutines.Continuation<kotlin.Unit>) returnType:kotlin.Any? [suspend]
+  VALUE_PARAMETER CONTINUATION_CLASS name:$completion index:0 type:kotlin.coroutines.Continuation<kotlin.Unit>
+  BLOCK_BODY
+    CLASS CONTINUATION_CLASS CLASS name:<Continuation> modality:FINAL visibility:public/*package*/ superTypes:[kotlin.coroutines.jvm.internal.ContinuationImpl]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:pkg.LoggerKt.main.<Continuation>
+      FIELD CONTINUATION_CLASS_RESULT_FIELD name:result type:kotlin.Result<kotlin.Any?> visibility:public/*package*/
+      FIELD name:label type:kotlin.Int visibility:public/*package*/
+      CONSTRUCTOR visibility:public/*package*/ <> ($completion:kotlin.coroutines.Continuation<pkg.LoggerKt.main.<Continuation>>?) returnType:pkg.LoggerKt.main.<Continuation> [primary]
+        VALUE_PARAMETER name:$completion index:0 type:kotlin.coroutines.Continuation<pkg.LoggerKt.main.<Continuation>>?
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> ($completion: kotlin.coroutines.Continuation<kotlin.Any?>?) declared in kotlin.coroutines.jvm.internal.ContinuationImpl'
+            $completion: GET_VAR '$completion: kotlin.coroutines.Continuation<pkg.LoggerKt.main.<Continuation>>? declared in pkg.LoggerKt.main.<Continuation>.<init>' type=kotlin.coroutines.Continuation<pkg.LoggerKt.main.<Continuation>>? origin=null
+      FUN name:invokeSuspend visibility:public modality:FINAL <> ($this:pkg.LoggerKt.main.<Continuation>, $result:kotlin.Result<kotlin.Any?>) returnType:kotlin.Any?
+        overridden:
+          public abstract fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in kotlin.coroutines.jvm.internal.ContinuationImpl
+        $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:pkg.LoggerKt.main.<Continuation>
+        VALUE_PARAMETER name:$result index:0 type:kotlin.Result<kotlin.Any?>
+        BLOCK_BODY
+          SET_FIELD 'FIELD CONTINUATION_CLASS_RESULT_FIELD name:result type:kotlin.Result<kotlin.Any?> visibility:public/*package*/' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: pkg.LoggerKt.main.<Continuation> declared in pkg.LoggerKt.main.<Continuation>.invokeSuspend' type=pkg.LoggerKt.main.<Continuation> origin=null
+            value: GET_VAR '$result: kotlin.Result<kotlin.Any?> declared in pkg.LoggerKt.main.<Continuation>.invokeSuspend' type=kotlin.Result<kotlin.Any?> origin=null
+          SET_FIELD 'FIELD name:label type:kotlin.Int visibility:public/*package*/' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: pkg.LoggerKt.main.<Continuation> declared in pkg.LoggerKt.main.<Continuation>.invokeSuspend' type=pkg.LoggerKt.main.<Continuation> origin=null
+            value: CALL 'public final fun or (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD name:label type:kotlin.Int visibility:public/*package*/' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: pkg.LoggerKt.main.<Continuation> declared in pkg.LoggerKt.main.<Continuation>.invokeSuspend' type=pkg.LoggerKt.main.<Continuation> origin=null
+              other: CONST Int type=kotlin.Int value=-2147483648
+          RETURN type=kotlin.Nothing from='public final fun invokeSuspend ($result: kotlin.Result<kotlin.Any?>): kotlin.Any? declared in pkg.LoggerKt.main.<Continuation>'
+            CALL 'public final fun main ($completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in pkg.LoggerKt' type=kotlin.Any? origin=null
+              $completion: GET_VAR '<this>: pkg.LoggerKt.main.<Continuation> declared in pkg.LoggerKt.main.<Continuation>.invokeSuspend' type=pkg.LoggerKt.main.<Continuation> origin=null
+    VAR name:ls type:pkg.LoggingSystem<pkg.KomodoLoggingFormat> [val]
+      CONSTRUCTOR_CALL 'public constructor <init> (level: pkg.LoggingLevel, appender: pkg.Appender, format: F of pkg.LoggingSystem) [primary] declared in pkg.LoggingSystem' type=pkg.LoggingSystem<pkg.KomodoLoggingFormat> origin=null
+        <class: F>: pkg.KomodoLoggingFormat
+        level: GET_FIELD 'FIELD FIELD_FOR_ENUM_ENTRY name:ERROR type:pkg.LoggingLevel visibility:public [final,static]' type=pkg.LoggingLevel origin=null
+        appender: CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in pkg.MutexAppender' type=pkg.MutexAppender origin=null
+        format: CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in pkg.KomodoLoggingFormat' type=pkg.KomodoLoggingFormat origin=null
+    VAR name:logger type:pkg.KomodoLogger<pkg.KomodoLoggingFormat> [val]
+      CALL 'public final fun getLogger (name: kotlin.String): pkg.KomodoLogger<F of pkg.LoggingSystem> declared in pkg.LoggingSystem' type=pkg.KomodoLogger<pkg.KomodoLoggingFormat> origin=null
+        $this: GET_VAR 'val ls: pkg.LoggingSystem<pkg.KomodoLoggingFormat> [val] declared in pkg.LoggerKt.main' type=pkg.LoggingSystem<pkg.KomodoLoggingFormat> origin=null
+        name: CONST String type=kotlin.String value="Hello"
+    RETURN type=kotlin.Nothing from='public final fun main ($completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [suspend] declared in pkg.LoggerKt'
+      CALL 'public final fun error <F> (message: @[ExtensionFunctionType] @[ContextFunctionTypeParams(count = '2')] kotlin.Function3<pkg.LoggerName, pkg.LoggingLevel, F of pkg.LoggerKt.error, kotlin.String>, $completion: kotlin.coroutines.Continuation<kotlin.Unit>): kotlin.Any? [inline,suspend] declared in pkg.LoggerKt' type=kotlin.Unit origin=null
+        <F>: pkg.KomodoLoggingFormat
+        $receiver: GET_VAR 'val logger: pkg.KomodoLogger<pkg.KomodoLoggingFormat> [val] declared in pkg.LoggerKt.main' type=pkg.KomodoLogger<pkg.KomodoLoggingFormat> origin=null
+        message: BLOCK type=@[ExtensionFunctionType] @[ContextFunctionTypeParams(count = '2')] kotlin.Function3<pkg.LoggerName, pkg.LoggingLevel, pkg.KomodoLoggingFormat, kotlin.String> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun main$lambda$0 (<this>: pkg.LoggerName, <this>: pkg.LoggingLevel): kotlin.String declared in pkg.LoggerKt' type=@[ExtensionFunctionType] @[ContextFunctionTypeParams(count = '2')] kotlin.Function3<pkg.LoggerName, pkg.LoggingLevel, pkg.KomodoLoggingFormat, kotlin.String> origin=INLINE_LAMBDA reflectionTarget=null
+        $completion: GET_VAR '$completion: kotlin.coroutines.Continuation<kotlin.Unit> declared in pkg.LoggerKt.main' type=kotlin.coroutines.Continuation<kotlin.Unit> origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:41)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:392)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:409)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:152)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:44)
+	at org.jetbrains.kotlin.backend.common.phaser.FileLoweringPhaseAdapter.invoke(PhaseBuilders.kt:120)
+	at org.jetbrains.kotlin.backend.common.phaser.FileLoweringPhaseAdapter.invoke(PhaseBuilders.kt:116)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.invoke(CompilerPhase.kt:96)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	... 42 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:main$lambda$0 visibility:private modality:FINAL <> ($receiver:pkg.KomodoLoggingFormat, <this>:pkg.LoggerName, <this>:pkg.LoggingLevel) returnType:kotlin.String
+  $receiver: VALUE_PARAMETER name:$this$error type:pkg.KomodoLoggingFormat
+  VALUE_PARAMETER name:<this> index:0 type:pkg.LoggerName
+  VALUE_PARAMETER name:<this> index:1 type:pkg.LoggingLevel
+  BLOCK_BODY
+    VAR name:$i$a$-error-LoggerKt$main$2 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    RETURN type=kotlin.Nothing from='private final fun main$lambda$0 (<this>: pkg.LoggerName, <this>: pkg.LoggingLevel): kotlin.String declared in pkg.LoggerKt'
+      CALL 'public final fun f (<this>: pkg.LoggerName, <this>: pkg.LoggingLevel, message: kotlin.String, t: kotlin.Throwable?): kotlin.String [inline] declared in pkg.KomodoLoggingFormat' type=kotlin.String origin=null
+        $this: TYPE_OP type=pkg.KomodoLoggingFormat origin=IMPLICIT_CAST typeOperand=pkg.KomodoLoggingFormat
+          GET_VAR '$this$error: pkg.KomodoLoggingFormat declared in pkg.LoggerKt.main$lambda$0' type=pkg.KomodoLoggingFormat origin=null
+        <this>: GET_VAR '<this>: pkg.LoggerName declared in pkg.LoggerKt.main$lambda$0' type=pkg.LoggerName origin=null
+        <this>: GET_VAR '<this>: pkg.LoggingLevel declared in pkg.LoggerKt.main$lambda$0' type=pkg.LoggingLevel origin=null
+        message: CONST String type=kotlin.String value="Hello"
+        t: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[FlexibleNullability] kotlin.String?) declared in java.lang.RuntimeException' type=java.lang.RuntimeException origin=null
+          p0: CONST String type=kotlin.String value="World"
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:68)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:96)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleValueParameter(ExpressionCodegen.kt:507)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:521)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:25)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitReturn(ExpressionCodegen.kt:915)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitReturn(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrReturn.accept(IrReturn.kt:25)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:464)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:468)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:242)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:118)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:45)
+	... 51 more
+Caused by: org.jetbrains.kotlin.codegen.CompilationException: Back-end (JVM) Internal error: Couldn't inline method call: CALL 'public final fun f (<this>: pkg.LoggerName, <this>: pkg.LoggingLevel, message: kotlin.String, t: kotlin.Throwable?): kotlin.String [inline] declared in pkg.KomodoLoggingFormat' type=kotlin.String origin=null
+Method: f (Lpkg/LoggerName;Lpkg/LoggingLevel;Ljava/lang/String;Ljava/lang/Throwable;)Ljava/lang/String;:
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+    // annotable parameter count: 4 (visible)
+    // annotable parameter count: 4 (invisible)
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 0
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 1
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 2
+    @Lorg/jetbrains/annotations/Nullable;() // invisible, parameter 3
+   L0
+    ALOAD 1
+    LDC "<this>"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkNotNullParameter (Ljava/lang/Object;Ljava/lang/String;)V
+    ALOAD 2
+    LDC "<this>"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkNotNullParameter (Ljava/lang/Object;Ljava/lang/String;)V
+    ALOAD 3
+    LDC "message"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkNotNullParameter (Ljava/lang/Object;Ljava/lang/String;)V
+    ICONST_0
+    ISTORE 5
+   L1
+   L2
+    LINENUMBER 49 L2
+    ALOAD 1
+    INVOKEVIRTUAL pkg/LoggerName.getName ()Ljava/lang/String;
+    ALOAD 2
+    INVOKEVIRTUAL pkg/LoggingLevel.name ()Ljava/lang/String;
+    ALOAD 3
+    ALOAD 4
+    IFNULL L3
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/Throwable.getMessage ()Ljava/lang/String;
+    GOTO L4
+   L3
+    NOP
+    ACONST_NULL
+   L4
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001 \u0001: \u0001 \u0001\n"
+    ]
+    ARETURN
+   L5
+    NOP
+   L6
+    LOCALVARIABLE $i$f$f I L1 L6 5
+    LOCALVARIABLE this Lpkg/KomodoLoggingFormat; L0 L6 0
+    LOCALVARIABLE <this> Lpkg/LoggerName; L0 L6 1
+    LOCALVARIABLE <this> Lpkg/LoggingLevel; L0 L6 2
+    LOCALVARIABLE message Ljava/lang/String; L0 L6 3
+    LOCALVARIABLE t Ljava/lang/Throwable; L0 L6 4
+    MAXSTACK = 4
+    MAXLOCALS = 6
+
+File is unknown
+The root cause java.lang.NullPointerException was thrown at: org.jetbrains.kotlin.codegen.inline.Parameters.getDeclarationSlot(Parameters.kt:57)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.performInline(InlineCodegen.kt:63)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genInlineCall(IrInlineCodegen.kt:163)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCallGenerator$DefaultImpls.genCall(IrInlineCallGenerator.kt:31)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genCall(IrInlineCodegen.kt:34)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:529)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:25)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitReturn(ExpressionCodegen.kt:915)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitReturn(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrReturn.accept(IrReturn.kt:25)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:464)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:468)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:136)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:242)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:118)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:45)
+	... 68 more
+Caused by: java.lang.NullPointerException
+	at org.jetbrains.kotlin.codegen.inline.Parameters.getDeclarationSlot(Parameters.kt:57)
+	at org.jetbrains.kotlin.codegen.inline.LocalVarRemapper.<init>(LocalVarRemapper.kt:35)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.inlineCall(InlineCodegen.kt:112)
+	at org.jetbrains.kotlin.codegen.inline.InlineCodegen.performInline(InlineCodegen.kt:50)
+	... 84 more
+
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':case1:compileKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Internal compiler error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+java.lang.StackOverflowError (no error message)
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+==============================================================================
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
